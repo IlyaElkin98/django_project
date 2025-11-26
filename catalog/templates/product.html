@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load my_tags %}
+{% block title %}{{product.name}}{% endblock %}
+
+{% block content %}
+{% include "header.html" %}
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">{{ product.name }}</h1>
+    <p class="lead">{{ product.description }}</p>
+</div>
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-3">
+            <img src="{{ product.image.url | media_filter }}" alt="img-fluid" width="360" height="360">
+        </div>
+    </div>
+    <div class="col-6">
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-primary">Категория: {{ product.category }}</li>
+          <li class="list-group-item list-group-item-secondary">Цена: {{ product.price }}</li>
+          <li class="list-group-item list-group-item-success">Дата регистрации товара в базу данных: {{ product.created_at }}</li>
+          <li class="list-group-item list-group-item-danger">Дата производства: {{ updated_at }}</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
