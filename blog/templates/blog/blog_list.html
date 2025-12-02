@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% block title %}Список блогов{% endblock %}
+
+
+
+
+{% block content %}
+{% include 'blog/header.html' %}
+{% load my_tags %}
+<h1 class="mb-4">Список постов</h1>
+{% for blog in object_list %}
+    <div class="card mb-3" style="max-width: 1200px">
+        <div class="row g-0">
+            <div class="col-md-2">
+                <img src="{{ blog.image.url | media_filter }}" alt="img-fluid" width="180" height="180">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <a href="{% url 'blog:detail_blog' blog.pk %}">{{ blog.title }}</a>
+                    <a href="{% url 'blog:update_blog' blog.pk %}" class="btn btn-sm btn-secondary ml-3">Редактировать</a>
+                    <a href="{% url 'blog:delete_blog' blog.pk %}" class="btn btn-sm btn-danger ml-1">Удалить</a>
+                    <p>Содержание: {{ blog.content }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

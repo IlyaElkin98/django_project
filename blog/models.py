@@ -20,9 +20,10 @@ class Blog(models.Model):
 
     date_of_creation = models.DateField(
         verbose_name='Дата создания',
-        default=0,
         null=True,
         blank=True,
+        auto_now_add=True
+
     )
 
     publication_sign = models.BooleanField(
