@@ -7,5 +7,6 @@
     <h1 class="mb-4">{{ object.title }}</h1>
     <p>{{ object.content }}</p>
     <p>Создано: {{ object.date_of_creation}}</p>
+    <p>Просмотров: {{ object.get_object}}</p>
 </div>
 {% endblock %}
