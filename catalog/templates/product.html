@@ -4,10 +4,9 @@
 
 {% block content %}
 {% include "header.html" %}
-
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">{{ product.name }}</h1>
-    <p class="lead">{{ product.description }}</p>
+    <h1 class="display-4">{{ object.name }}</h1>
+    <p class="lead">{{ object.description }}</p>
 </div>
 
 <div class="container">
@@ -18,10 +17,10 @@
     </div>
     <div class="col-6">
         <ul class="list-group">
-          <li class="list-group-item list-group-item-primary">Категория: {{ product.category }}</li>
-          <li class="list-group-item list-group-item-secondary">Цена: {{ product.price }}</li>
-          <li class="list-group-item list-group-item-success">Дата регистрации товара в базу данных: {{ product.created_at }}</li>
-          <li class="list-group-item list-group-item-danger">Дата производства: {{ product.updated_at }}</li>
+          <li class="list-group-item list-group-item-primary">Категория: {{ object.category }}</li>
+          <li class="list-group-item list-group-item-secondary">Цена: {{ object.price }}</li>
+          <li class="list-group-item list-group-item-success">Дата регистрации товара в базу данных: {{ object.created_at }}</li>
+          <li class="list-group-item list-group-item-danger">Дата производства: {{ object.updated_at }}</li>
         </ul>
     </div>
 </div>

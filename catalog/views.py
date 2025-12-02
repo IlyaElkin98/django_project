@@ -1,16 +1,19 @@
-from django.shortcuts import render
-
+from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, TemplateView
 from catalog.models import Product
 
-def home(request):
-    products_list = Product.objects.all()
-    context = {'products_list' : products_list, }
-    return render(request, "home.html", context)
 
-def contacts(request):
-    return render(request, "contacts.html")
+class CatalogListView(ListView):
+    model = Product
+    template_name = 'products_list.html'
+    context_object_name = 'products'
 
-def product(request, pk):
-    product = Product.objects.get(pk=pk)
-    context = {'product': product, }
-    return render(request, "product.html", context)
+
+class ContactsView(TemplateView):
+    template_name = "contacts.html"
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = "product.html"
+    context_object_name = 'product'
+
